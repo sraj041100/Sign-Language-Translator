@@ -1,0 +1,9 @@
+timestamp,gesture,confidence
+11:19:32.351,stop,0.976
+11:19:34.931,rock,0.845
+11:19:38.718,smile,0.899
+11:19:41.769,thumbs up,1.000
+11:19:43.730,thumbs down,1.000
+11:19:45.479,okay,1.000
+11:19:49.071,thumbs up,1.000
+11:19:50.622,thumbs down,0.805

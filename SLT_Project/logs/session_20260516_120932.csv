@@ -1,0 +1,15 @@
+timestamp,gesture,confidence
+12:10:00.031,call me,0.988
+12:10:27.147,thumbs down,1.000
+12:10:45.042,thumbs up,0.756
+12:10:46.331,call me,0.806
+12:10:50.442,thumbs down,1.000
+12:11:01.464,call me,0.945
+12:11:05.896,fist,1.000
+12:11:09.114,thumbs up,1.000
+12:11:11.339,thumbs down,1.000
+12:11:13.527,call me,0.902
+12:11:18.770,thumbs down,0.664
+12:11:27.017,thumbs up,1.000
+12:11:30.181,stop,0.974
+12:11:33.412,live long,1.000
