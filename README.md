@@ -1,40 +1,79 @@
-<div align="center">
-
 # 🤟 Sign Language Translator
 
-An AI-powered real-time sign language recognition system that translates hand gestures into text using Computer Vision, MediaPipe, and Deep Learning.
-
-[![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)]()
-[![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green?style=flat-square)]()
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange?style=flat-square&logo=tensorflow)]()
-[![MediaPipe](https://img.shields.io/badge/MediaPipe-Hand%20Tracking-red?style=flat-square)]()
-
-</div>
+Real-time Sign Language Recognition using Computer Vision and Deep Learning.
 
 ---
 
-## ✨ Features
+# 🌟 What is this project?
 
-- 🤟 Real-time hand gesture recognition
+Sign Language Translator is an AI-powered application that recognizes hand gestures in real time and translates them into text. The project uses MediaPipe for hand landmark detection and a Convolutional Neural Network (CNN) for gesture classification.
+
+The system is designed to bridge the communication gap between hearing-impaired individuals and the general community by providing an intuitive and accessible gesture recognition platform.
+
+The current version supports ten predefined gestures and achieves approximately 89% recognition accuracy during testing.
+
+---
+
+# ✨ Key Features
+
+## 🚀 Current Features
+
+- 🤟 Real-time gesture recognition
 - 🖐️ MediaPipe hand landmark detection
 - 🧠 CNN-based gesture classification
 - 📝 Gesture-to-text translation
-- 🔊 Optional text-to-speech output
 - 📸 Screenshot capture support
 - 📊 Session logging
-- ⚡ Temporal smoothing for stable predictions
-- 🎯 Approximately 89% recognition accuracy
+- 🎯 Confidence scoring
+- 📜 Gesture history panel
+- ⏸️ Pause and resume functionality
+- 🔊 Optional text-to-speech output
+
+## 🎓 What Makes It Special for Learning?
+
+- 💡 Demonstrates an end-to-end AI application
+- 🤖 Uses Computer Vision and Deep Learning together
+- 📂 Covers dataset collection and preprocessing
+- ✋ Shows practical use of MediaPipe hand tracking
+- 🧠 Includes model training and real-time inference
+- 🌱 Beginner-friendly project for learning AI and Computer Vision
 
 ---
 
-## 🏗️ System Architecture
+# 📸 Screenshots
+
+## 🏠 Main Interface
+
+```markdown
+![Main Interface](screenshots/main.png)
+```
+
+## 🤟 Gesture Detection
+
+```markdown
+![Detection](screenshots/detection.png)
+```
+
+## 📝 Prediction Output
+
+```markdown
+![Output](screenshots/output.png)
+```
+
+---
+
+# 🏗️ Architecture
+
+## ⚙️ How It Works
 
 ```text
 Webcam Input
       ↓
 Hand Detection (MediaPipe)
       ↓
-Feature Extraction (42 landmarks)
+Landmark Extraction
+      ↓
+Feature Preprocessing
       ↓
 CNN Model Prediction
       ↓
@@ -43,130 +82,167 @@ Gesture Classification
 Text & Speech Output
 ```
 
----
+## 🔧 Configuration Options
 
-## 📂 Project Structure
+| Option | Description |
+|---------|-------------|
+| `--camera` | Webcam device index |
+| `--width` | Capture width |
+| `--height` | Capture height |
+| `--threshold` | Confidence threshold |
+| `--smooth` | Temporal smoothing frames |
+| `--no-log` | Disable session logging |
 
-SLT_Project/
-├── main.py                  # Real-time SLT application (run this!)
-├── data_collector.py        # Collect training samples via webcam
-├── train_model.py           # Train model on collected data
-├── generate_demo_model.py   # Generate a synthetic demo model
-├── evaluate_model.py        # Evaluate accuracy + confusion matrix
-├── gesture.names            # List of gesture class names
-├── requirements.txt         # Python dependencies
-│
-├── model/                   # Saved Keras model + charts
-│   ├── mp_hand_gesture/
-│   ├── training_history.png
-│   ├── confusion_matrix.png
-│   └── per_class_accuracy.png
-│
-├── data/                    # Collected JSON landmark datasets
-├── utils/
-│   ├── predictor.py         # MediaPipe + Keras inference wrapper
-│   ├── overlay.py           # HUD / on-screen drawing utilities
-│   └── logger.py            # CSV session logger
-├── screenshots/             # Auto-saved screenshots
-└── logs/                    # Per-session gesture logs (CSV)
+Example:
+
+```bash
+python main.py --camera 0 --threshold 0.60 --smooth 5
+```
 
 ---
 
-## 🚀 Installation
+# 📂 Project Structure
 
-### Clone the repository
+```text
+Sign-Language-Translator
+│
+├── model/
+├── data/
+├── logs/
+├── screenshots/
+├── gesture.names
+├── main.py
+├── data_collector.py
+├── utils.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# 🚀 Getting Started
+
+## 📋 Prerequisites
+
+- 🐍 Python 3.10+
+- 📷 Webcam
+- 📦 pip package manager
+
+## ⚡ Installation
 
 ```bash
 git clone https://github.com/sraj041100/Sign-Language-Translator.git
 cd Sign-Language-Translator
-```
-
-### Create a virtual environment
-
-```bash
-python -m venv venv
-```
-
-### Activate it
-
-Windows:
-
-```bash
-venv\Scripts\activate
-```
-
-Linux/Mac:
-
-```bash
-source venv/bin/activate
-```
-
-### Install dependencies
-
-```bash
 pip install -r requirements.txt
 ```
 
----
-
-## ▶️ Run the application
+## ▶️ First-Time Use
 
 ```bash
 python main.py
 ```
 
----
+## ⚙️ Configuration
 
-## 🎮 Controls
+```bash
+python main.py --threshold 0.70
+```
 
-| Key | Action |
-|-----|---------|
-| Q / ESC | Exit application |
-| S | Save screenshot |
-| H | Toggle help |
-| Space | Pause / Resume |
-| C | Clear gesture history |
+```bash
+python main.py --camera 1
+```
 
 ---
 
-## 🧠 Recognized Gestures
+# 🧪 Use Cases & Experiments
 
-- 👍 Thumbs Up
-- 👎 Thumbs Down
-- 👌 Okay
-- ✌️ Peace
-- 🤙 Call Me
-- ✋ Stop
-- ✊ Fist
-- 🖐️ Live Long
-- 😊 Smile
-- 🤘 Rock
+- 🎓 Learning Computer Vision concepts
+- 🤖 Learning Deep Learning workflows
+- 🖥️ Human-computer interaction experiments
+- ♿ Accessibility and assistive technology research
+- ✋ Hand gesture recognition projects
+- 📚 AI and Machine Learning academic projects
 
 ---
 
-## 📸 Screenshots
+# ⚡ Advanced Usage
 
-<p align="center">
-  <img src="screenshots/demo.png" width="900">
-</p>
+## 📂 Collect Custom Dataset
+
+```bash
+python data_collector.py
+```
+
+## 🧠 Train New Model
+
+```bash
+python train.py
+```
+
+## 🎯 Change Confidence Threshold
+
+```bash
+python main.py --threshold 0.75
+```
+
+## 📊 Disable Logging
+
+```bash
+python main.py --no-log
+```
 
 ---
 
-## 🔮 Future Improvements
+# 🚀 What's Next?
 
-- Sentence generation
-- Sign-to-speech conversion
-- Multi-language support
-- Mobile application
-- Cloud deployment
-- Expanded gesture dataset
+- 📝 Add sentence generation
+- 🎯 Improve model accuracy
+- 🤟 Support dynamic gestures
+- ➕ Add more gesture classes
+- 🌐 Deploy as a web application
 
 ---
 
+# 🔮 Future Enhancements
+
+- 🔊 Sign-to-Speech conversion
+- 🌍 Multi-language support
+- 📱 Mobile application
+- ☁️ Cloud deployment
+- 🎓 Custom gesture training
+- 🔌 Real-time translation API
+- 🤖 Transformer-based gesture recognition
+
+---
+
+# 📚 Learning Resources
+
+- 📖 MediaPipe Documentation
+- 📖 OpenCV Documentation
+- 📖 TensorFlow Documentation
+- 📖 Keras Documentation
+- 📘 Computer Vision with Python
+- 📗 Deep Learning for Beginners
+
+---
+
+# 👨‍💻 Author
+
+**Shivam Raj**
+
+🎓 MCA Student | Full Stack Developer | AI Enthusiast
+
+📧 shivamraj041100@gmail.com
+
+🔗 GitHub: https://github.com/sraj041100
+
+🔗 LinkedIn: https://linkedin.com/in/sraj04
+
+---
 
 <div align="center">
 
-⭐ If you like this project, consider giving it a star.
+⭐ If you found this project useful, please consider giving it a star.
 
 Made with ❤️ by Shivam Raj
 
