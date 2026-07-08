@@ -236,25 +236,19 @@ python main.py --no-log
 - 📗 Deep Learning for Beginners
 
 ---
+## ⭐ Show Your Support
 
-# 👨‍💻 Author
+If you found this project useful, please consider giving it a ⭐ on GitHub.
 
-**Shivam Raj**
-
-🎓 MCA Student | Full Stack Developer | AI Enthusiast
-
-📧 shivamraj041100@gmail.com
-
-🔗 GitHub: https://github.com/sraj041100
-
-🔗 LinkedIn: https://linkedin.com/in/sraj04
+<p align="center">
+  <a href="https://github.com/sraj041100/Sign-Language-Translator">
+    <img src="https://img.shields.io/github/stars/sraj041100/CGMS?style=social">
+  </a>
+</p>
 
 ---
 
-<div align="center">
+<p align="center">
+  Made with ❤️ by <b>Shivam Raj</b>
+</p>
 
-⭐ If you found this project useful, please consider giving it a star.
-
-Made with ❤️ by Shivam Raj
-
-</div>
