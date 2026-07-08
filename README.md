@@ -1,6 +1,17 @@
+<div align="center">
+
 # 🤟 Sign Language Translator
 
 Real-time Sign Language Recognition using Computer Vision and Deep Learning.
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python">
+  <img src="https://img.shields.io/badge/OpenCV-4.x-green?style=flat-square">
+  <img src="https://img.shields.io/badge/TensorFlow-2.x-orange?style=flat-square&logo=tensorflow">
+  <img src="https://img.shields.io/badge/MediaPipe-Hand%20Tracking-red?style=flat-square">
+</p>
+
+</div>
 
 ---
 
