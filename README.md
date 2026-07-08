@@ -113,20 +113,29 @@ python main.py --camera 0 --threshold 0.60 --smooth 5
 ---
 
 # 📂 Project Structure
-
-```text
-Sign-Language-Translator
+```
+SLT_Project/
+├── main.py                  # Real-time SLT application (run this!)
+├── data_collector.py        # Collect training samples via webcam
+├── train_model.py           # Train model on collected data
+├── generate_demo_model.py   # Generate a synthetic demo model
+├── evaluate_model.py        # Evaluate accuracy + confusion matrix
+├── gesture.names            # List of gesture class names
+├── requirements.txt         # Python dependencies
 │
-├── model/
-├── data/
-├── logs/
-├── screenshots/
-├── gesture.names
-├── main.py
-├── data_collector.py
-├── utils.py
-├── requirements.txt
-└── README.md
+├── model/                   # Saved Keras model + charts
+│   ├── mp_hand_gesture/
+│   ├── training_history.png
+│   ├── confusion_matrix.png
+│   └── per_class_accuracy.png
+│
+├── data/                    # Collected JSON landmark datasets
+├── utils/
+│   ├── predictor.py         # MediaPipe + Keras inference wrapper
+│   ├── overlay.py           # HUD / on-screen drawing utilities
+│   └── logger.py            # CSV session logger
+├── screenshots/             # Auto-saved screenshots
+└── logs/                    # Per-session gesture logs (CSV)
 ```
 
 ---
