@@ -1,31 +1,52 @@
-# Sign Language Translator (SLT)
----
+<div align="center">
 
-## Project Overview
-A real-time Sign Language Translator that uses a webcam to capture hand gestures
-and converts them into text using Computer Vision (MediaPipe) and a Deep Learning
-model (CNN/Dense via TensorFlow/Keras).
+# 🤟 Sign Language Translator
 
----
+An AI-powered real-time sign language recognition system that translates hand gestures into text using Computer Vision, MediaPipe, and Deep Learning.
 
-## Recognized Gestures (10 classes)
-| Gesture | Finger State |
-|---------|-------------|
-| Okay | Thumb + ring + pinky extended, index + middle curled |
-| Peace | Index + middle extended |
-| Thumbs Up | Only thumb extended upward |
-| Thumbs Down | Thumb extended downward |
-| Call Me | Thumb + pinky extended |
-| Stop | All fingers extended, palm forward |
-| Rock | Index + pinky extended |
-| Live Long | Index + middle + pinky extended |
-| Fist | All fingers curled |
-| Smile | Index + middle + ring extended |
+[![Python](https://img.shields.io/badge/Python-3.10+-blue?style=flat-square&logo=python)]()
+[![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green?style=flat-square)]()
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-Deep%20Learning-orange?style=flat-square&logo=tensorflow)]()
+[![MediaPipe](https://img.shields.io/badge/MediaPipe-Hand%20Tracking-red?style=flat-square)]()
+
+</div>
 
 ---
 
-## Project Structure
+## ✨ Features
+
+- 🤟 Real-time hand gesture recognition
+- 🖐️ MediaPipe hand landmark detection
+- 🧠 CNN-based gesture classification
+- 📝 Gesture-to-text translation
+- 🔊 Optional text-to-speech output
+- 📸 Screenshot capture support
+- 📊 Session logging
+- ⚡ Temporal smoothing for stable predictions
+- 🎯 Approximately 89% recognition accuracy
+
+---
+
+## 🏗️ System Architecture
+
+```text
+Webcam Input
+      ↓
+Hand Detection (MediaPipe)
+      ↓
+Feature Extraction (42 landmarks)
+      ↓
+CNN Model Prediction
+      ↓
+Gesture Classification
+      ↓
+Text & Speech Output
 ```
+
+---
+
+## 📂 Project Structure
+
 SLT_Project/
 ├── main.py                  # Real-time SLT application (run this!)
 ├── data_collector.py        # Collect training samples via webcam
@@ -48,142 +69,105 @@ SLT_Project/
 │   └── logger.py            # CSV session logger
 ├── screenshots/             # Auto-saved screenshots
 └── logs/                    # Per-session gesture logs (CSV)
-```
 
 ---
 
-## Quick Start
+## 🚀 Installation
 
-### Step 1 — Install dependencies
+### Clone the repository
+
+```bash
+git clone https://github.com/sraj041100/Sign-Language-Translator.git
+cd Sign-Language-Translator
+```
+
+### Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+### Activate it
+
+Windows:
+
+```bash
+venv\Scripts\activate
+```
+
+Linux/Mac:
+
+```bash
+source venv/bin/activate
+```
+
+### Install dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 2 — Generate demo model (instant, no webcam needed)
-```bash
-python generate_demo_model.py
-```
+---
 
-### Step 3 — Run the application
+## ▶️ Run the application
+
 ```bash
 python main.py
 ```
 
 ---
 
-## Full Workflow (for best accuracy)
+## 🎮 Controls
 
-### 1. Collect real training data
-```bash
-python data_collector.py
-```
-- The app will guide you through each gesture.
-- Press **SPACE** when ready to record each class.
-- Default: **200 samples per gesture** (2,000 total).
-
-### 2. Train the model
-```bash
-python train_model.py
-```
-- Uses EarlyStopping + ReduceLROnPlateau.
-- Saves best model to `model/mp_hand_gesture`.
-- Generates `model/training_history.png`.
-
-### 3. Evaluate
-```bash
-python evaluate_model.py
-```
-- Prints classification report.
-- Saves confusion matrix + per-class accuracy chart.
-
-### 4. Run
-```bash
-python main.py
-```
-
----
-
-## Runtime Controls
 | Key | Action |
-|-----|--------|
-| Q / ESC | Quit |
-| S | Save screenshot to `screenshots/` |
-| C | Clear gesture history panel |
-| H | Toggle keyboard help display |
-| SPACE | Pause / Resume detection |
+|-----|---------|
+| Q / ESC | Exit application |
+| S | Save screenshot |
+| H | Toggle help |
+| Space | Pause / Resume |
+| C | Clear gesture history |
 
 ---
 
-## Command-Line Options
-```bash
-python main.py --camera 1          # Use camera index 1
-python main.py --threshold 0.75    # Set confidence threshold (default 0.60)
-python main.py --smooth 7          # Temporal smoothing frames (default 5)
-python main.py --no-log            # Disable session CSV logging
-```
+## 🧠 Recognized Gestures
+
+- 👍 Thumbs Up
+- 👎 Thumbs Down
+- 👌 Okay
+- ✌️ Peace
+- 🤙 Call Me
+- ✋ Stop
+- ✊ Fist
+- 🖐️ Live Long
+- 😊 Smile
+- 🤘 Rock
 
 ---
 
-## Algorithm: CNN / Dense Network
-The model processes **21 MediaPipe hand landmarks** (x, y per point = 42 values):
+## 📸 Screenshots
 
-```
-Input (42) → Dense(128) + BN + Dropout
-           → Dense(64)  + BN + Dropout
-           → Dense(32)
-           → Softmax(10 classes)
-```
-
-Key layers:
-- **Convolution layer** — feature extraction (used in broader CNN concept)
-- **ReLU activation** — non-linearity
-- **Batch Normalization** — training stability
-- **Dropout** — regularization
-- **Fully Connected (Dense)** — classification
+<p align="center">
+  <img src="screenshots/demo.png" width="900">
+</p>
 
 ---
 
-## Hardware Requirements
-| Component | Minimum |
-|-----------|---------|
-| RAM | 8 GB |
-| Storage | 10 GB |
-| GPU | Optional (4 GB recommended) |
-| Processor | Intel i5 (8th gen+) |
-| Camera | Built-in webcam (720p+) |
+## 🔮 Future Improvements
 
-## Software Requirements
-| Component | Version |
-|-----------|---------|
-| Python | 3.10+ |
-| TensorFlow | 2.13+ |
-| OpenCV | 4.8+ |
-| MediaPipe | 0.10+ |
-| OS | Windows 10/11, Ubuntu 20.04+ |
+- Sentence generation
+- Sign-to-speech conversion
+- Multi-language support
+- Mobile application
+- Cloud deployment
+- Expanded gesture dataset
 
 ---
 
-## Known Limitations
-- Works best in good lighting conditions
-- Currently detects one hand at a time
-- Distance-limited due to webcam resolution
-- Dialect variations in sign language not covered
 
-## Future Enhancements
-- Multi-hand detection
-- Mobile application (Android/iOS)
-- Online platform / website integration
-- Voice output (text-to-speech)
-- More gesture classes
-- Different sign language dialects (ISL, ASL, Auslan)
+<div align="center">
 
----
+⭐ If you like this project, consider giving it a star.
 
-## Bibliography
-1. https://stackoverflow.com/
-2. https://www.geeksforgeeks.org/
-3. https://mediapipe.dev/
-4. https://www.tensorflow.org/
-5. https://opencv.org/
+Made with ❤️ by Shivam Raj
 
-
+</div>
