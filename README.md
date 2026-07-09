@@ -61,9 +61,9 @@ The current version supports ten predefined gestures and achieves approximately 
 
 ## 🤟 Gesture Detection
 
-```markdown
+
 <img src="SLT_Project/screenshots/photo_6066788760877208061_y.jpg" alt="CGMS Banner" width="100%">
-```
+
 
 ## 📝 Prediction Output
 
