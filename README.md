@@ -62,7 +62,7 @@ The current version supports ten predefined gestures and achieves approximately 
 ## 🤟 Gesture Detection
 
 ```markdown
-![Detection](screenshots/detection.png)
+![Detection](SLT_Project/screenshots/photo_6066788760877208061_y.jpg)
 ```
 
 ## 📝 Prediction Output
